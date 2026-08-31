@@ -1,0 +1,7 @@
+run: "docker-compose up --build"
+seed: "python -m app.seed"
+base_url: "http://localhost:8000"
+endpoints:
+  metering: "POST /v1/billable-action"
+  usage: "GET /v1/usage"
+  webhook: "POST /v1/webhooks/stripe"
