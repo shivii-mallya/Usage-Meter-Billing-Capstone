@@ -14,3 +14,14 @@ class GenerateResponse(BaseModel):
     event_id: UUID
     message: str
     idempotent_replay: bool = False
+
+class UsageRequest(BaseModel):
+    event_type: str = Field(..., example="api_call")
+    quantity: int = Field(..., gt=0, example=100)
+
+class UsageResponse(BaseModel):
+    status: str
+    tenant_id: str
+    event_id: str
+    message: str
+    idempotent_replay: bool

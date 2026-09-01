@@ -10,3 +10,8 @@
 - Implemented database-level idempotency checks using unique key constraints on `UsageEvent`.
 - Implemented quota enforcement logic returning `429 Too Many Requests` on tier limit breaches.
 - Verified test suite: successfully handled idempotent replays and enforced quota rejections.
+
+## Phase 3: Stripe Webhook Integration & Metering Sync
+- Added `stripe` SDK support and configured `stripe_utils.py` for metered event reporting.
+- Built `/v1/webhooks/stripe` endpoint to capture subscription events (`customer.subscription.updated`).
+- Implemented real-time tier synchronization: active Stripe subscriptions automatically adjust tenant plan states in the database.
